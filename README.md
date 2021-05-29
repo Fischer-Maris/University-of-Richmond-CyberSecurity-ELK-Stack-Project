@@ -160,7 +160,7 @@ Answer: Update the [host file](https://github.com/Fischer-Maris/University-of-Ri
 
 ![ScreenShot](https://github.com/Fischer-Maris/University-of-Richmond-CyberSecurity-Projects/blob/ed19dec/Images/Django%20Kibana.png)
 
-### Additional Commands used
+### Additional Commands Used
 | COMMAND |	PURPOSE |
 |---------|---------|
 | sudo apt-get update | this will update all packages |

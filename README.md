@@ -117,32 +117,61 @@ The playbook implements the following tasks:
 
 The following screenshot displays the result of running `docker ps` after successfully configuring the ELK instance.
 
-![markdown Logo]()
-
+![markdown Logo](https://github.com/Fischer-Maris/University-of-Richmond-CyberSecurity-Projects/blob/ed19dec/Images/Progect%201%20ELK%20server%20contianer.png)
 
 ### Target Machines & Beats
 This ELK server is configured to monitor the following machines:
-- _TODO: List the IP addresses of the machines you are monitoring_
+- Web-1 : 10.0.0.7
+- Web-2 : 10.0.0.8
 
 We have installed the following Beats on these machines:
-- _TODO: Specify which Beats you successfully installed_
+- ELK Server, Web-1 and Web-2
+- The ELK Stack Installed are: FileBeat and MetricBeat
 
 These Beats allow us to collect the following information from each machine:
-- _TODO: In 1-2 sentences, explain what kind of data each beat collects, and provide 1 example of what you expect to see. E.g., `Winlogbeat` collects Windows logs, which we use to track user logon events, etc._
+- Filebeat: Log events
+- Metricbeat: Metrics and system and system statistics
 
 ### Using the Playbook
 In order to use the playbook, you will need to have an Ansible control node already configured. Assuming you have such a control node provisioned: 
 
 SSH into the control node and follow the steps below:
-- Copy the _____ file to _____.
-- Update the _____ file to include...
-- Run the playbook, and navigate to ____ to check that the installation worked as expected.
 
-_TODO: Answer the following questions to fill in the blanks:_
+For ELK installation VM Configuration:
+
+- Copy the [ Ansible ELK installation and VM Configuration](https://github.com/Fischer-Maris/University-of-Richmond-CyberSecurity-Projects/blob/ed19dec/Ansible/ELK-Installation)
+- Run the Playbook using this command:```html ansible-playbook install-elk.yml ```
+- Verify with ```html ansible-playbook install-elk.yml ``` again and everything should say "ok" in green.
+
 - _Which file is the playbook? Where do you copy it?_
+
+Answer: A playbook file is a .yml, and you copy them them to source and destination
+ ```html - name: drop in filebeat.yml
+      copy:
+        src: /etc/ansible/files/filebeat-config.yml
+        dest: /etc/filebeat/filebeat.yml
+```
+ 
 - _Which file do you update to make Ansible run the playbook on a specific machine? How do I specify which machine to install the ELK server on versus which to install Filebeat on?_
+
+Answer: Update the [host file](https://github.com/Fischer-Maris/University-of-Richmond-CyberSecurity-Projects/blob/ed19dec/Ansible/hosts) . To specify you add the privite IP under elk not webservers in the hosts file.
+
 - _Which URL do you navigate to in order to check that the ELK server is running?
 
-_As a **Bonus**, provide the specific commands the user will need to run to download the playbook, update the files, etc._
+![ScreenShot](https://github.com/Fischer-Maris/University-of-Richmond-CyberSecurity-Projects/blob/ed19dec/Images/Django%20Kibana.png)
 
+### Additional Commands used
+| COMMAND |	PURPOSE |
+|---------|---------|
+| sudo apt-get update | this will update all packages |
+| sudo apt install docker.io	| install docker application |
+| sudo service docker start	| start the docker application |
+| systemctl status docker	| status of the docker application |
+| sudo docker pull cyberxsecurity/ansible	| download the docker file |
+| sudo docker run -ti cyberxsecurity/ansible bash	| run and create a docker image |
+| sudo docker start <image-name>	| starts the image specified |
+| sudo docker ps -a	| list all active/inactive containers |
+| sudo docker attach <image-name>	| effectively sshing into the ansible |
+| ssh-keygen	| create a ssh key |
+| ansible -m ping all	| check the connection of ansible containers |
 

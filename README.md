@@ -140,8 +140,8 @@ SSH into the control node and follow the steps below:
 For ELK installation VM Configuration:
 
 - Copy the [ Ansible ELK installation and VM Configuration](https://github.com/Fischer-Maris/University-of-Richmond-CyberSecurity-Projects/blob/ed19dec/Ansible/ELK-Installation)
-- Run the Playbook using this command:```html ansible-playbook install-elk.yml ```
-- Verify with ```html ansible-playbook install-elk.yml ``` again and everything should say "ok" in green.
+- Run the Playbook using this command:```  ansible-playbook install-elk.yml ```
+- Verify with ```  ansible-playbook install-elk.yml ``` again and everything should say "ok" in green.
 
 - _Which file is the playbook? Where do you copy it?_
 

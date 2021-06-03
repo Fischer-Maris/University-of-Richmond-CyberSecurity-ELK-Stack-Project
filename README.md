@@ -21,7 +21,7 @@ These files have been tested and used to generate a live ELK deployment on Azure
 [Hosts File](https://github.com/Fischer-Maris/University-of-Richmond-CyberSecurity-Projects/blob/ed19dec/Ansible/hosts)
 
 This document contains the following details:
-- Description of the Topologu
+- Description of the Topology
 - Access Policies
 - ELK Configuration
   - Beats in Use
@@ -59,7 +59,7 @@ The configuration details of each machine may be found below.
 
 The machines on the internal network are not exposed to the public Internet. 
 
-Only the Elk Sever machine can accept connections from the Internet. Access to this machine is only allowed from the following IP addresses:
+Only the Elk Server machine can accept connections from the Internet. Access to this machine is only allowed from the following IP addresses:
 - Workstation Public IP through TCP 5601
 
 Machines within the network can only be accessed by Workstation and JumpBox.
@@ -70,16 +70,16 @@ A summary of the access policies in place can be found in the table below.
 
 | Name       | Publicly Accessible | Allowed IP Addresses              |
 |------------|---------------------|-----------------------------------|
-| Jump Box   | No                  | Workstation Public IP on SSH 22   |                 
+| Jump Box   | Yes                  | Workstation Public IP on SSH 22   |                 
 | Web-1      | No                  | 10.0.0.7 on SSH 22                |
 | Web-2      | No                  | 10.0.0.8 on SSH 22                |
 | ELK-Server | No                  | Workstation Public IP on TCP 5601 |
-| Load Balancer      | No                  | Workstation Public IP on HTTP 80  |
+| Load Balancer      | Yes                 | Workstation Public IP on HTTP 80  |
                                                          
 
 ### Elk Configuration
 
-Ansible was used to automate configuration of the ELK machine. No configuration was performed manually, which is advantageous because Ansible lets you quickly and easily deploy multitier apps. You list the tasks Needed to be done by writing a playbook, and Ansible will figure out how to get your systems to the state you want them to be in.
+Ansible was used to automate the configuration of the ELK machine. No configuration was performed manually, which is advantageous because Ansible lets you quickly and easily deploy multitier apps. You list the tasks needed to be done by writing a playbook, and Ansible will figure out how to get your systems to the state you want them to be in.
 
 The playbook implements the following tasks:
 
@@ -133,7 +133,7 @@ These Beats allow us to collect the following information from each machine:
 - Metricbeat: Metrics and system and system statistics
 
 ### Using the Playbook
-In order to use the playbook, you will need to have an Ansible control node already configured. Assuming you have such a control node provisioned: 
+To use the playbook, you will need to have an Ansible control node already configured. Assuming you have such a control node provisioned: 
 
 SSH into the control node and follow the steps below:
 
@@ -145,7 +145,7 @@ For ELK installation VM Configuration:
 
 - _Which file is the playbook? Where do you copy it?_
 
-Answer: A playbook file is a .yml, and you copy them them to source and destination
+Answer: A playbook file is a .yml, and you copy them to source and destination
  ```html - name: drop in filebeat.yml
       copy:
         src: /etc/ansible/files/filebeat-config.yml
@@ -154,7 +154,7 @@ Answer: A playbook file is a .yml, and you copy them them to source and destinat
  
 - _Which file do you update to make Ansible run the playbook on a specific machine? How do I specify which machine to install the ELK server on versus which to install Filebeat on?_
 
-Answer: Update the [host file](https://github.com/Fischer-Maris/University-of-Richmond-CyberSecurity-Projects/blob/ed19dec/Ansible/hosts) . To specify you add the privite IP under elk not webservers in the hosts file.
+Answer: Update the [host file](https://github.com/Fischer-Maris/University-of-Richmond-CyberSecurity-Projects/blob/ed19dec/Ansible/hosts) . To specify you add the private IP under elk not webservers in the hosts file.
 
 - _Which URL do you navigate to in order to check that the ELK server is running?
 
